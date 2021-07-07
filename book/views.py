@@ -5,9 +5,8 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from book.filter import BookFilter
 from django_filters.views import FilterView
-# from django.core.paginator import Paginator
-# Create your views here.
 
+# Create your views here.
 
 class BookListView(ListView):
     model=Book
@@ -15,7 +14,7 @@ class BookListView(ListView):
     context_object_name='books'
     ordering=['-date_posted']
     paginate_by=5
-
+   
     filter = BookFilter()
     def get_context_data(self,  **kwargs):
         context= super().get_context_data(**kwargs)

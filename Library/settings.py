@@ -132,3 +132,4 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 LOGIN_REDIRECT_URL='book-home'
 
 LOGIN_URL='login'
+
