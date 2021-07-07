@@ -8,14 +8,6 @@ from django_filters.views import FilterView
 # from django.core.paginator import Paginator
 # Create your views here.
 
-def home(request):
-    books = Book.objects.all()
-    filter=BookFilter(request.GET, queryset=books)
-    books=filter.qs
-    context={
-        'books': books
-    }
-    return render(request,'blog/home.html',context) 
 
 class BookListView(ListView):
     model=Book
