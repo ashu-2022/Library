@@ -2,13 +2,6 @@
 {% load crispy_forms_tags %}
 {% block body %}
 
-    
-    {% comment %}
-    {{ filter|crispy }}
-        {% for book in books %}
-    {% endcomment %}
-    
-
     {% for book in filter.qs %}
 
     <article class="media content-section">
