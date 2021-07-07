@@ -1,0 +1,30 @@
+{% extends 'book/base.html'%}
+{% load crispy_forms_tags %}
+{% block body %}
+
+    
+    {% comment %}
+    {{ filter|crispy }}
+        {% for book in books %}
+    {% endcomment %}
+    
+
+    {% for book in filter.qs %}
+
+    <article class="media content-section">
+        <img class="img-thumbnail" src="{{book.image.url}}" alt="book pic">
+         <div class=" pl-4 media-body">
+        <div class="article-metadata">
+            <p class="article-content">{{ book.name }} by <span> {{ book.author }} </span></p>
+            <small class="text-muted">{{ book.date_posted|date:"F d, Y" }}</small>
+        </div>
+        <strong>Desc : </strong><p class="article-content">{{ book.desc }}</p>
+        <strong>Genre : </strong><p class="article-content">{{ book.genre }}</p>
+        <strong>Language : </strong><p class="article-content">{{ book.language }}</p>
+        </div>
+    </article>
+    {% endfor %}
+    
+
+
+{% endblock %}
