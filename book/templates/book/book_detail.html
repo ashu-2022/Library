@@ -2,30 +2,18 @@
 {% load crispy_forms_tags %}
 {% block body %}
 
-
-    {% for book in filter.qs %}
-
     <article class="media content-section">
-        <div>
         <img class="img-thumbnail" src="{{book.image.url}}" alt="book pic">
-        <a class="btn btn-lg btn-outline-primary d-block mt-2" href="{% url 'book-detail' book.pk %}" role="button">view Detail</a>
-       
-        </div>
-         <div class=" pl-4 media-body">
+        <div class=" pl-4 media-body">
         <div class="article-metadata">
             <p class="article-content">{{ book.name }} by <span> {{ book.author }} </span></p>
             <small class="text-muted">{{ book.date_posted|date:"F d, Y" }}</small>
         </div>
+        <strong>Desciption : </strong><p class="article-content">{{ book.desc }}</p>
         <strong>Genre : </strong><p class="article-content">{{ book.get_genre_display }}</p>
         <strong>Language : </strong><p class="article-content">{{ book.get_language_display }}</p>
         </div>
     </article>
-    {% endfor %}
     
-
-
 {% endblock %}
 
-{% block search %}
-{% include "book/search_filter.html" %}
-{% endblock %}

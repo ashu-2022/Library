@@ -27,4 +27,7 @@ class BookCreateView(LoginRequiredMixin,CreateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+
+class BookDetailView(DetailView):
+    model = Book
     

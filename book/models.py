@@ -18,7 +18,6 @@ GENRE_CHOICES = (
 )
 
 # Create your models here.
-    
 class Book(models.Model):
     name = models.CharField(max_length=100)
     desc = models.TextField()
@@ -27,6 +26,9 @@ class Book(models.Model):
     language = models.IntegerField(choices=LANGUAGE_CHOICES,null=True)
     image = models.ImageField(default='default.jpg',upload_to='book_pics',blank = True)
     date_posted=models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        unique_together = (('name', 'author','genre','language'))
 
     def __str__(self):
         return f'{self.name} by {self.author}'
